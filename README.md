@@ -2,7 +2,7 @@
 
 - 🌱 I’m currently learning **React**
 
-- 📫 How to reach me **mdnazmulnahid.official@gmail.com**
+- 📫 Reach me on  **mdnazmulnahid.official@gmail.com**
 
 
 <h2> Profile Links </h2>
@@ -28,8 +28,15 @@
 <!--   <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"> -->
   <img src="https://img.shields.io/badge/Xampp-F37623?style=for-the-badge&logo=xampp&logoColor=white">
   <img src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white">
-  <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
-  <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+
+
+
+  <img src="https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff">
+
+  <img src="https://img.shields.io/badge/-CSS3-%231572B6?style=flat-square&logo=css3">
+
+
+
 <!--   <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"> -->
 </span>
 <h2>  Operating System </h2>
