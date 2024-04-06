@@ -1,8 +1,8 @@
 <h1 align="center">Hi 👋, I'm Nahid</h1>
 
-- 🌱 I’m currently learning **React**
+- 🌱 I’m currently learning **Adonis Js**
 
-- 📫 Reach me on  **mdnazmulnahid.official@gmail.com**
+- 📫 Reach me on  **nazmulnahid.official@gmail.com**
 
 
 <h2> Profile Links </h2>
@@ -25,7 +25,7 @@
   <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white"> -->
   <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
-<!--   <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"> -->
+  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
   <img src="https://img.shields.io/badge/Xampp-F37623?style=for-the-badge&logo=xampp&logoColor=white">
   <img src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white">
 
