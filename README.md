@@ -1,5 +1,5 @@
 <!-- banner image starts here  -->
-<img src="./images/banner.png" width="100%">
+<img src="https://bit.ly/nahid-banner" width="100%">
 <!-- banner image ends here  -->
 
 
