@@ -1,3 +1,8 @@
+<!-- banner image starts here  -->
+<img src="./images/banner.png" width="100%">
+<!-- banner image ends here  -->
+
+
 <h1 align="center">Hi 👋, I'm Nahid</h1>
 
 - 🌱 I’m currently learning **Adonis Js**
