@@ -2,11 +2,9 @@
 <img src="https://lh3.googleusercontent.com/pw/AP1GczOYZK9VroPepWA-zD7rTxc1JEibmjJvvAI6BSo-KMVKxQiCVwC-imqOXau04CBGlQd7lrYN0KqJG67ybo12v3SAzCAWOHKnKK34FesxU4CbU0CD1OQRaxNL0FS-eWYmCFTMaZgOvpTI1_8uI3jZVxJU=w1330-h493-s-no-gm?authuser=0" width="100%">
 <!-- banner image ends here  -->
 
-<!--h1 align="center">
+<h1 align="center">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Nazmul+Nahid!;" />
-</h1 -->
-
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=&pause=1000&color=0097B2&random=false&width=300&lines=Hi+There..!!%F0%9F%91%8B;I'm+Nazmul+Nahid)](https://git.io/typing-svg)
+</h1>
 
 - 🌱 I’m currently learning **Adonis Js**
 
