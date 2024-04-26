@@ -11,7 +11,7 @@
 - 📫 Reach me on  **nazmulnahid.official@gmail.com**
 
 
-<h2> Profile Links </h2>
+<h2 align="center"> Profile Links </h2>
 
 <a href="https://www.facebook.com/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" ></a>
 <a href="https://www.linkedin.com/in/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" > </a>
@@ -19,7 +19,7 @@
 <a href="https://codeforces.com/profile/itsnazmulnahid"> <img src="https://img.shields.io/badge/Codeforces-445f9d?style=for-the-badge&logo=Codeforces&logoColor=white"> </a>
 <a href="https://www.codechef.com/users/itsnazmulnahid"> <img src="https://img.shields.io/badge/CodeChef-%23964B00.svg?style=for-the-badge&logo=CodeChef&logoColor=white"> </a>
 
-<h2> Skills </h2>
+<h2 align="center"> Skills </h2>
 <span> 
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
