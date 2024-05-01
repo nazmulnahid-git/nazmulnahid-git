@@ -13,7 +13,7 @@
  <a href="" target="blank"> <img src="https://img.shields.io/badge/Website-DC143C?style=for-the-badge&logo=medium&logoColor=white" alt="alsiam" />
  </a>
  <a href="https://www.linkedin.com/in/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" > </a>
- <a href="https://www.instagram.com/_nazmulnahid/" target="_blank">
+ <a href="mailto: nazmulnahid.official@gmail.com" target="_blank">
   <img src="https://img.shields.io/badge/gmail-fe4164?style=for-the-badge&logo=gmail&logoColor=white" alt="alsiam" />
  </a> 
 <a href="https://www.facebook.com/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" ></a>
