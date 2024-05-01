@@ -25,7 +25,7 @@
 <!-- About Section -->
  <h2 align="center"> About Me </h2>
 <p>
- <img align="right" width="250" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
+ <img align="right" width="220" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
   
  - ✨  &emsp;Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
    <br>
