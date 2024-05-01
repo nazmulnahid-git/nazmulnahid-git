@@ -25,7 +25,7 @@
 <!-- About Section -->
  <h2 align="center"> About Me </h2>
 <p>
- <img align="right" width="220" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
+ <img align="right" width="30%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
   
  - ✨  &emsp;Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
    <br>
@@ -38,12 +38,11 @@
 - 📫 Reach me on  *nazmulnahid.official@gmail.com*
 <br>
 <br>
-<br>
 </p>
 
 
 <h2 align="center"> Use To Code </h2>
-<span> 
+<p align="center">
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -61,14 +60,14 @@
   <img src="https://img.shields.io/badge/-CSS3-%231572B6?style=for-the-badge&logo=css3">
   <img src="https://img.shields.io/badge/Visual_Studio-0078d7?style=for-the-badge&logo=visual%20studio&logoColor=white">
     
-</span>
+</p>
 
 
 <h2 align="center">  Operating System </h2>
-<span>
+<p align="center">
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
-</span>
+</p>
 
 
 
