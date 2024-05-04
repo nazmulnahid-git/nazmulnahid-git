@@ -76,5 +76,5 @@
   </a>
 </p>
 <p align = "center"  width="100%">
-  <img  width="70%" height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&theme=algolia" alt="https://git.io/streak-stats" />
+  <img  width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&theme=algolia" alt="https://git.io/streak-stats" />
 </p>
