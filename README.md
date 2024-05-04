@@ -1,6 +1,4 @@
-<!-- banner image starts here  -->
 <img src="https://lh3.googleusercontent.com/pw/AP1GczMon5Sx0cNh6y_MB4p9ZDYadkoDSI378YkR9oHt5CdJROijdGjg095aHrJjqTLs-3OJV9tZFiyigdOznMVzcTuEDz7biNC3LjKEqKYBc1la0TbYVL28nlEVZwCFu1nmevxVHdQwmMrchQGp_ogJo6IG=w1330-h493-s-no-gm?authuser=0" width="100%">
-<!-- banner image ends here  -->
 
 <h3 align="center" margin="0px" padding="0px">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There..!!+👋;+I'm+Nazmul+Nahid;" />
@@ -24,25 +22,25 @@
 
 <!-- About Section -->
  <h2 align="center"> About Me </h2>
-<p>
- <img align="right" width="30%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
+<p  align="center">
+ <img align="right" width="25%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
   
- - ✨  &emsp;Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
-   <br>
- - 📚 &emsp; Currently learning *Adonis Js* for back-end and practicing on *React Js* to mastering the art of virtual DOM. Diving into the world of component-based UI development.
-   <br>
- - 🎯 &emsp;  Goals: *FullStack Developer* <br> Striving for proficiency in both front-end and back-end technologies, aiming to build robust and scalable applications.
-   <br>
- - 🎲 &emsp;Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
-   <br>
-- 📫 Reach me on  *nazmulnahid.official@gmail.com*
+✨ &emsp;Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
+   <br><br>
+📚 &emsp;Currently learning *Adonis Js* for back-end and practicing on *React Js* to mastering the art of virtual DOM. Diving into the world of component-based UI development.
+   <br><br>
+🎯 &emsp;Goals: *FullStack Developer* <br> Striving for proficiency in both front-end and back-end technologies, aiming to build robust and scalable applications.
+   <br><br>
+🎲 &emsp;Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
+   <br><br>
+📫&emsp;Reach me on  *nazmulnahid.official@gmail.com*
 <br>
 <br>
 </p>
 
 
 <h2 align="center"> Use To Code </h2>
-<p align="center">
+<p>
   <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
@@ -69,34 +67,7 @@
   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
 </p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### ⚙️ &nbsp;GitHub Analytics
+<h2 align="center"> GitHub Analytics </h2>
 
 <p align = "center" width = "100%">
   <a href="https://github.com/nazmulnahid-git">
@@ -105,6 +76,5 @@
   </a>
 </p>
 <p align = "center"  width="100%">
-  <!--  CONTRIBUTION AND STREAK BLOCK -->
-  <img  width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&theme=algolia" alt="https://git.io/streak-stats" />
+  <img  width="50%" src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&theme=algolia" alt="https://git.io/streak-stats" />
 </p>
