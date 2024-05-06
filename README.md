@@ -71,8 +71,8 @@
 
 <p align="center">
   <a href="https://github.com/nazmulnahid-git">
-    <img  src="https://github-readme-stats-eight-theta.vercel.app/api?username=nazmulnahid-git&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
-    <img width = '41%' src="https://github-readme-stats-seven-theta.vercel.app/api/top-langs/?username=nazmulnahid-git&layout=compact&langs_count=20&theme=algolia"/>  <br>
+    <img  src="https://github-readme-stats-eight-theta.vercel.app/api?username=nazmulnahid-git&show_icons=true&theme=algolia&include_all_commits=true&count_private=true&align=left"/> <br>
+    <img src="https://github-readme-stats-seven-theta.vercel.app/api/top-langs/?username=nazmulnahid-git&layout=compact&langs_count=20&theme=algolia&align=right"/>  <br>
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&theme=algolia" alt="https://git.io/streak-stats" />  <br>
   </a>
 </p>
