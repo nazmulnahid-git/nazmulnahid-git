@@ -1,4 +1,4 @@
-<img src="https://lh3.googleusercontent.com/pw/AP1GczMon5Sx0cNh6y_MB4p9ZDYadkoDSI378YkR9oHt5CdJROijdGjg095aHrJjqTLs-3OJV9tZFiyigdOznMVzcTuEDz7biNC3LjKEqKYBc1la0TbYVL28nlEVZwCFu1nmevxVHdQwmMrchQGp_ogJo6IG=w1330-h493-s-no-gm?authuser=0" width="100%">
+<!-- <img src="https://lh3.googleusercontent.com/pw/AP1GczMon5Sx0cNh6y_MB4p9ZDYadkoDSI378YkR9oHt5CdJROijdGjg095aHrJjqTLs-3OJV9tZFiyigdOznMVzcTuEDz7biNC3LjKEqKYBc1la0TbYVL28nlEVZwCFu1nmevxVHdQwmMrchQGp_ogJo6IG=w1330-h493-s-no-gm?authuser=0" width="100%"> --->
 
 <h3 align="center" margin="0px" padding="0px">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There..!!+👋;+I'm+Nazmul+Nahid;" />
@@ -21,22 +21,26 @@
 <br>
 
 <!-- About Section -->
- <h2 align="center"> About Me </h2>
-<p  align="center">
- <img align="right" width="25%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
-  
-✨ &emsp;Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
+<h2 align="center"> About Me </h2>
+<p align="center">
+  <img align="right" width="25%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
+
+✨ &emsp; Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
    <br><br>
-📚 &emsp;Currently learning *Adonis Js* for back-end and practicing on *React Js* to mastering the art of virtual DOM. Diving into the world of component-based UI development.
+💻 &emsp; Currently working as a *Junior Software Engineer*, focusing on building scalable and efficient applications. Gaining hands-on experience with *AdonisJS* for back-end development and mastering *ReactJS & NextJS* for dynamic front-end interfaces.
    <br><br>
-🎯 &emsp;Goals: *FullStack Developer* <br> Striving for proficiency in both front-end and back-end technologies, aiming to build robust and scalable applications.
+🎯 &emsp;Goals: Dedicated to mastering both front-end and back-end technologies to create seamless and robust applications.
    <br><br>
-🎲 &emsp;Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
+🚀 &emsp; Achievements: Successfully contributing to production-level projects, honing my skills in problem-solving, and improving performance in real-world applications.
    <br><br>
-📫&emsp;Reach me on  *nazmulnahid.official@gmail.com*
-<br>
-<br>
+🎲 &emsp; Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
+   <br><br>
+📫 &emsp;Reach me at *nazmulnahid.official@gmail.com*
+   <br><br>
 </p>
+
+
+
 
 
 <h2 align="center"> Use To Code </h2>
