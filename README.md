@@ -34,9 +34,9 @@
 🚀 &emsp; Achievements: Successfully contributing to production-level projects, honing my skills in problem-solving, and improving performance in real-world applications.
    <br><br>
 🎲 &emsp; Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
-   <br><br>
+  <!-- <br><br>
 📫 &emsp;Reach me at *nazmulnahid.official@gmail.com*
-   <br><br>
+   <br><br> --->
 </p>
 
 
