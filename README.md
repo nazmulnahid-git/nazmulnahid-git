@@ -81,7 +81,8 @@
     <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=nazmulnahid-git&theme=onedark" /> <br>
     <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nazmulnahid-git&theme=onedark" />
     <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=nazmulnahid-git&theme=onedark" /> <br>
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&card_width=700&theme=onedark" alt="https://git.io/streak-stats" />  <br>
+<!--     <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&card_width=700&theme=onedark" alt="https://git.io/streak-stats" />  <br> -->
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&theme=onedark&fire=DD2727&currStreakLabel=FCCC39&card_width=700" />
 <!--     <img src="https://github-readme-stats-seven-theta.vercel.app/api/top-langs/?username=nazmulnahid-git&layout=compact&langs_count=20&theme=onedark&align=right"/>  <br> -->
 <!--     <img  src="https://github-readme-stats-eight-theta.vercel.app/api?username=nazmulnahid-git&show_icons=true&theme=onedark&include_all_commits=true&count_private=true"/> <br> -->
 
