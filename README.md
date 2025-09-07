@@ -23,7 +23,7 @@
 <!-- About Section -->
 <h2 align="center"> About Me </h2>
 <p align="center">
-  <img align="right" width="25%" src="https://lh3.googleusercontent.com/pw/AP1GczO4gZUiUyDOay5iSjeszoOpMo7LHPGVYj7nMieiBSqRXO0r_821DpIa6Knyi7ucFwYAsHDDE-vxWHfIu6FAPNExM3xzvxhAmBR9_2erSAenplESX8eLCQFA8nAyf7aE_iUZHX2Hd_2Pnr-Gj8TxH6J3=w677-h846-s-no-gm?authuser=0" alt="nahid photo" />
+  <img align="right" width="25%" src="https://scontent.fdac154-1.fna.fbcdn.net/v/t39.30808-6/542165987_4253267521620858_5012244070223885458_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGe1rSL787LHukEC-ApK1NKKU6vNyfjVcgpTq83J-NVyHxWYmcEmlV4ZjFKMFVlIYwiNcoHaSBdVTm2LzqVH3w-&_nc_ohc=yoDDzFwh5tEQ7kNvwH9voRA&_nc_oc=AdmLnVd-mk7VceS_xfHg6oUsLEeHR1QOMF5ERzD5rUvUg3JiZkMacd83s4WFbtaIdBc&_nc_zt=23&_nc_ht=scontent.fdac154-1.fna&_nc_gid=Ben_Brm0T6r9jTKXmavxvQ&oh=00_AfaggvJTqq_HA88QYy84VGFamHgcmLCgfbTqpqbJArqtxA&oe=68C3272D" alt="nahid photo" />
 
 ✨ &emsp; Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
    <br><br>
