@@ -23,7 +23,7 @@
 <!-- About Section -->
 <h2 align="center"> About Me </h2>
 <p align="center">
-  <img align="right" width="25%" src="https://scontent.fdac154-1.fna.fbcdn.net/v/t39.30808-6/542165987_4253267521620858_5012244070223885458_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGe1rSL787LHukEC-ApK1NKKU6vNyfjVcgpTq83J-NVyHxWYmcEmlV4ZjFKMFVlIYwiNcoHaSBdVTm2LzqVH3w-&_nc_ohc=yoDDzFwh5tEQ7kNvwH9voRA&_nc_oc=AdmLnVd-mk7VceS_xfHg6oUsLEeHR1QOMF5ERzD5rUvUg3JiZkMacd83s4WFbtaIdBc&_nc_zt=23&_nc_ht=scontent.fdac154-1.fna&_nc_gid=Ben_Brm0T6r9jTKXmavxvQ&oh=00_AfaggvJTqq_HA88QYy84VGFamHgcmLCgfbTqpqbJArqtxA&oe=68C3272D" alt="nahid photo" />
+  <!-- <img align="right" width="25%" src="https://scontent.fdac154-1.fna.fbcdn.net/v/t39.30808-6/542165987_4253267521620858_5012244070223885458_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGe1rSL787LHukEC-ApK1NKKU6vNyfjVcgpTq83J-NVyHxWYmcEmlV4ZjFKMFVlIYwiNcoHaSBdVTm2LzqVH3w-&_nc_ohc=yoDDzFwh5tEQ7kNvwH9voRA&_nc_oc=AdmLnVd-mk7VceS_xfHg6oUsLEeHR1QOMF5ERzD5rUvUg3JiZkMacd83s4WFbtaIdBc&_nc_zt=23&_nc_ht=scontent.fdac154-1.fna&_nc_gid=Ben_Brm0T6r9jTKXmavxvQ&oh=00_AfaggvJTqq_HA88QYy84VGFamHgcmLCgfbTqpqbJArqtxA&oe=68C3272D" alt="nahid photo" /> -->
 
 ✨ &emsp; Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
    <br><br>
@@ -65,12 +65,13 @@
     
 </p>
 
-
-<h2 align="center">  Operating System </h2>
+<h2 align="center"> Operating System </h2>
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white">
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+  <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white">
 </p>
+
 
 <h2 align="center"> GitHub Analytics </h2>
 
