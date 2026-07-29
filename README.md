@@ -1,98 +1,24 @@
-<!-- <img src="https://lh3.googleusercontent.com/pw/AP1GczMon5Sx0cNh6y_MB4p9ZDYadkoDSI378YkR9oHt5CdJROijdGjg095aHrJjqTLs-3OJV9tZFiyigdOznMVzcTuEDz7biNC3LjKEqKYBc1la0TbYVL28nlEVZwCFu1nmevxVHdQwmMrchQGp_ogJo6IG=w1330-h493-s-no-gm?authuser=0" width="100%"> --->
+# 👋 Hi, I'm Nazmul Nahid
 
-<h3 align="center" margin="0px" padding="0px">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There..!!+👋;+I'm+Nazmul+Nahid;" />
-<br>
-  <samp> 
-    「 Programmer | Web Developer | Softawre Engineer 」
-  </samp>
-</h3>
-<p align="center">
- <a href="" target="blank"> <img src="https://img.shields.io/badge/Website-DC143C?style=for-the-badge&logo=medium&logoColor=white" alt="alsiam" />
- </a>
- <a href="https://www.linkedin.com/in/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" > </a>
- <a href="mailto: nazmulnahid.official@gmail.com" target="_blank">
-  <img src="https://img.shields.io/badge/gmail-fe4164?style=for-the-badge&logo=gmail&logoColor=white" alt="alsiam" />
- </a> 
-<a href="https://www.facebook.com/itsnazmulnahid/" target="_blank"> <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" ></a>
-<a href="https://codeforces.com/profile/itsnazmulnahid"> <img src="https://img.shields.io/badge/Codeforces-445f9d?style=for-the-badge&logo=Codeforces&logoColor=white"> </a>
-<a href="https://www.codechef.com/users/itsnazmulnahid"> <img src="https://img.shields.io/badge/CodeChef-%23964B00.svg?style=for-the-badge&logo=CodeChef&logoColor=white"> </a>
-</p>
-<br>
+💻 Software Engineer (2+ yrs) | 🏗️ Building **multi-tenant SaaS platforms** at scale
 
-<!-- About Section -->
-<h2 align="center"> About Me </h2>
-<p align="center">
-  <!-- <img align="right" width="25%" src="https://scontent.fdac154-1.fna.fbcdn.net/v/t39.30808-6/542165987_4253267521620858_5012244070223885458_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGe1rSL787LHukEC-ApK1NKKU6vNyfjVcgpTq83J-NVyHxWYmcEmlV4ZjFKMFVlIYwiNcoHaSBdVTm2LzqVH3w-&_nc_ohc=yoDDzFwh5tEQ7kNvwH9voRA&_nc_oc=AdmLnVd-mk7VceS_xfHg6oUsLEeHR1QOMF5ERzD5rUvUg3JiZkMacd83s4WFbtaIdBc&_nc_zt=23&_nc_ht=scontent.fdac154-1.fna&_nc_gid=Ben_Brm0T6r9jTKXmavxvQ&oh=00_AfaggvJTqq_HA88QYy84VGFamHgcmLCgfbTqpqbJArqtxA&oe=68C3272D" alt="nahid photo" /> -->
+---
 
-✨ &emsp; Creating bugs since 2022. Embracing the learning curve, turning every bug into a lesson.
-   <br><br>
-💻 &emsp; Currently working as a *Junior Software Engineer*, focusing on building scalable and efficient applications. Gaining hands-on experience with *AdonisJS* for back-end development and mastering *ReactJS & NextJS* for dynamic front-end interfaces.
-   <br><br>
-🎯 &emsp;Goals: Dedicated to mastering both front-end and back-end technologies to create seamless and robust applications.
-   <br><br>
-🚀 &emsp; Achievements: Successfully contributing to production-level projects, honing my skills in problem-solving, and improving performance in real-world applications.
-   <br><br>
-🎲 &emsp; Fun fact: Exploring the unknown; where every semicolon is a secret passage to debugging adventures.
-  <!-- <br><br>
-📫 &emsp;Reach me at *nazmulnahid.official@gmail.com*
-   <br><br> --->
-</p>
+### 🔹 About Me
 
 
+- 🚀 Building and maintaining **scalable, multi-tenant SaaS platforms** (AI-powered LMS, no-code website builder, white-label community) used by creators and agencies worldwide
+- 🧩 Full-stack across **backend** (APIs, schema design, databases, indexing, caching, query optimization) and **frontend** (Pages & App Router, SSR, RSC, TanStack Query, revalidation, optimized rendering with Next.js)
+- 💳 Hands-on building **payment systems end to end** across multiple gateways (subscription billing, Stripe & PayPal checkout, idempotent webhooks, refunds, revenue reporting etc)
+- 📧 Hands-on building **email marketing systems** (visual audience segmentation builder, drag-and-drop campaign templates, behavior-triggered automation sequences, delivery analytics)
+- 🌍 Hands-on building **custom domain infrastructure** (DNS propagation, SSL auto-provisioning, subdomain routing) so agencies can serve clients fully white-labeled
+- 🔒 **Security-conscious by default** — tenant isolation and data privacy, permission-gated APIs, auth and session hardening, and PII that never reaches the client
+- ✅ Experience with **unit testing** and **end-to-end testing** for reliable, maintainable software
+- 🛠️ **Solution-oriented** — dig into root causes, fix critical production issues, and turn recurring problems into shared systems instead of one-off patches
+- 🎯 Passionate about clean architecture and access patterns that stay **fast and cheap as data grows**
 
+---
 
+### 🔹 Tech Stack
 
-<h2 align="center"> Use To Code </h2>
-<p align="center">
-  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white">
-  <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
-  <img src="https://img.shields.io/badge/React.js-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
-  <img src="https://img.shields.io/badge/Next.js-white?style=for-the-badge&logo=nextdotjs&logoColor=black">
-  <img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
-  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
-  <img src="https://img.shields.io/badge/Xampp-F37623?style=for-the-badge&logo=xampp&logoColor=white">
-  <img src="https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
-  <img src="https://img.shields.io/badge/Adonis-220052?style=for-the-badge&labelColor=black&logo=adonisjs&logoColor=white">
-  <img src="https://img.shields.io/badge/-HTML5-%23E44D27?style=for-the-badge&logo=html5&logoColor=ffffff">
-  <img src="https://img.shields.io/badge/-CSS3-%231572B6?style=for-the-badge&logo=css3">
-  <img src="https://img.shields.io/badge/Visual_Studio-0078d7?style=for-the-badge&logo=visual%20studio&logoColor=white">
-    
-</p>
-
-<h2 align="center"> Operating System </h2>
-<p align="center">
-  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white">
-  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
-  <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white">
-</p>
-
-
-<h2 align="center"> GitHub Analytics </h2>
-
-<p align="center">
-  <a href="https://github.com/nazmulnahid-git">
-    <img  src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=nazmulnahid-git&theme=onedark"/> <br>
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=nazmulnahid-git&theme=onedark" />
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=nazmulnahid-git&theme=onedark" /> <br>
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nazmulnahid-git&theme=onedark" />
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=nazmulnahid-git&theme=onedark" /> <br>
-<!--     <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&currStreakNum=2FD3EB&fire=pink&sideLabels=F00&card_width=700&theme=onedark" alt="https://git.io/streak-stats" />  <br> -->
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=nazmulnahid-git&theme=onedark&fire=DD2727&currStreakLabel=FCCC39&card_width=700" />
-<!--     <img src="https://github-readme-stats-seven-theta.vercel.app/api/top-langs/?username=nazmulnahid-git&layout=compact&langs_count=20&theme=onedark&align=right"/>  <br> -->
-<!--     <img  src="https://github-readme-stats-eight-theta.vercel.app/api?username=nazmulnahid-git&show_icons=true&theme=onedark&include_all_commits=true&count_private=true"/> <br> -->
-
-<!-- 
-![Repos per Language](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nazmulnahid-git&theme=github)
-![Most Commit Language](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=nazmulnahid-git&theme=github)
-![Stats](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=nazmulnahid-git&theme=github)
--->
-
-  </a>
-</p>
-
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=cplusplus&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) ![TanStack Query](https://img.shields.io/badge/TanStack_Query-FF4154?style=flat&logo=reactquery&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-764ABC?style=flat&logo=redux&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwindcss&logoColor=white) ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=white) ![Ant Design](https://img.shields.io/badge/Ant_Design-0170FE?style=flat&logo=antdesign&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white) ![AdonisJS](https://img.shields.io/badge/AdonisJS-5A45FF?style=flat&logo=adonisjs&logoColor=white) ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white) ![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=flat&logo=socketdotio&logoColor=white) ![REST APIs](https://img.shields.io/badge/REST_APIs-6BA539?style=flat&logo=openapiinitiative&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white) ![DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?style=flat) ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white) ![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat&logo=stripe&logoColor=white) ![PayPal](https://img.shields.io/badge/PayPal-003087?style=flat&logo=paypal&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=cloudflare&logoColor=white) ![CDN](https://img.shields.io/badge/CDN-0B7285?style=flat) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white) ![Caddy](https://img.shields.io/badge/Caddy-1F88C0?style=flat&logo=caddy&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white) ![Turborepo](https://img.shields.io/badge/Turborepo-EF4444?style=flat&logo=turborepo&logoColor=white) ![pnpm](https://img.shields.io/badge/pnpm-F69220?style=flat&logo=pnpm&logoColor=white) ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat&logo=vitest&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat&logo=eslint&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=postman&logoColor=white)
