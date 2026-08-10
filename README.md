@@ -6,16 +6,14 @@
 
 ### 🔹 About Me
 
-
 - 🚀 Building and maintaining **scalable, multi-tenant SaaS platforms** (AI-powered LMS, no-code website builder, white-label community) used by creators and agencies worldwide
-- 🧩 Full-stack across **backend** (APIs, schema design, databases, indexing, caching, query optimization) and **frontend** (Pages & App Router, SSR, RSC, TanStack Query, revalidation, optimized rendering with Next.js)
-- 💳 Hands-on building **payment systems end to end** across multiple gateways (subscription billing, Stripe & PayPal checkout, idempotent webhooks, refunds, revenue reporting etc)
-- 📧 Hands-on building **email marketing systems** (visual audience segmentation builder, drag-and-drop campaign templates, behavior-triggered automation sequences, delivery analytics)
-- 🌍 Hands-on building **custom domain infrastructure** (DNS propagation, SSL auto-provisioning, subdomain routing) so agencies can serve clients fully white-labeled
-- 🔒 **Security-conscious by default** — tenant isolation and data privacy, permission-gated APIs, auth and session hardening, and PII that never reaches the client
-- ✅ Experience with **unit testing** and **end-to-end testing** for reliable, maintainable software
-- 🛠️ **Solution-oriented** — dig into root causes, fix critical production issues, and turn recurring problems into shared systems instead of one-off patches
-- 🎯 Passionate about clean architecture and access patterns that stay **fast and cheap as data grows**
+- 🧩 Strong **full-stack expertise** across APIs, databases, caching, indexing, query optimization, and modern Next.js architecture
+- 💳 **End-to-end payment systems** with multiple gateways (eg. Stripe & PayPal), subscriptions, webhooks, refunds, and revenue reporting
+- 📧 **Email marketing platforms** with audience segmentation, campaign builders, behavioral automation, and delivery analytics
+- 🌍 **Custom domain infrastructure** with DNS, SSL provisioning, and white-label routing
+- 🔒 **Security-first practices** with tenant isolation, permission-based APIs, secure authentication, and data privacy
+- ✅ **Unit & end-to-end testing**, production debugging, and root-cause problem solving
+- 🎯 Focused on **clean architecture, scalable systems, and cost-efficient data access**
 
 ---
 
