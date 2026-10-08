@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Nazmul Nahid
 
-💻 Software Engineer (2+ yrs) | 🏗️ Building **multi-tenant SaaS platforms** at scale
+💻 Software Engineer (2.5+ yrs) | 🏗️ Building **multi-tenant SaaS platforms** at scale
 
 ---
 
