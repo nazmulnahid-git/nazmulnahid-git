@@ -98,7 +98,7 @@ const PAD = 6; // room around cards for the light-mode shadow
 // Desktop panels draw at 880 but sit on a wider canvas with transparent space on the right, so on
 // GitHub (width 100%) everything renders this much smaller, proportions intact and left-aligned.
 // Phone panels use the full width.
-const SHRINK = 0.9;
+const SHRINK = 1; // 1 = full width; e.g. 0.9 renders everything 10% smaller
 let WIDEN = false;
 const P = 20; // padding inside a card
 
@@ -187,9 +187,9 @@ function icon(name, x, y, size, color, sw = 2) {
 }
 const dot = (cx, cy, r, c) => `<circle cx="${r1(cx)}" cy="${r1(cy)}" r="${r}" fill="${c}"/>`;
 
-function sectionTitle(t, W, title, note, phone) {
-  let out = text(PAD + 2, 25, title.toUpperCase(), { f: 'i6', s: 12.5, ls: 0.04, c: t.muted });
-  if (note) out += text(W - PAD - 2, 25, note, { f: 'i4', s: 12.5, a: 'end', c: t.muted });
+function sectionTitle(t, W, title, note, phone, y = 25) {
+  let out = text(PAD + 2, y, title.toUpperCase(), { f: 'i6', s: 12.5, ls: 0.04, c: t.muted });
+  if (note) out += text(W - PAD - 2, y, note, { f: 'i4', s: 12.5, a: 'end', c: t.muted });
   return out;
 }
 
@@ -301,43 +301,54 @@ function brand(t) {
   return svg(Math.ceil(cx + tw(ROLE, 14, 'i5') + 4), lh + 2 * top, t, `Hi, I'm ${NAME}, ${ROLE}`, body);
 }
 
-// Headline, intro and facts; not a link.
+// Headline, intro and facts; not a link. Uses the full width so it stays short.
 function hero(t, phone) {
   const label = `${HEADLINE.join(' ')} ${INTRO} ${FACTS.map(([k, v]) => `${k}: ${v}.`).join(' ')}`;
-  const W = phone ? 440 : 880, x = PAD, maxW = phone ? W - 2 * PAD : 660;
+  const W = phone ? 440 : 880, x = PAD, maxW = W - 2 * PAD;
   let body = '';
 
-  const hs = phone ? 32 : 50, hl = hs * 1.08;
-  let y = (phone ? 12 : 18) + hs * 0.8; // breathing room under the logo line
-  HEADLINE.forEach((part, i) => {
-    for (const l of wrap(part, maxW, hs, 'i7')) { body += text(x - 2, y, l, { f: 'i7', s: hs, c: i ? t.faint : t.fg }); y += hl; }
-  });
-  y += phone ? 6 : 8;
-  const is = phone ? 15.5 : 17.5;
-  for (const l of wrap(INTRO, maxW, is, 'i4')) { body += text(x, y, l, { f: 'i4', s: is, c: t.muted }); y += is * 1.55; }
+  // Headline: on one line, two-tone, when it fits; otherwise one part per line.
+  const hs = phone ? 27 : 38, hl = hs * 1.1;
+  let y = (phone ? 8 : 10) + hs * 0.8;
+  const [first, second] = HEADLINE;
+  if (tw(`${first} ${second}`, hs, 'i7') <= maxW) {
+    body += text(x - 1, y, first, { f: 'i7', s: hs, c: t.fg });
+    body += text(x - 1 + tw(`${first} `, hs, 'i7'), y, second, { f: 'i7', s: hs, c: t.faint });
+    y += hl;
+  } else {
+    HEADLINE.forEach((part, i) => {
+      for (const l of wrap(part, maxW, hs, 'i7')) { body += text(x - 1, y, l, { f: 'i7', s: hs, c: i ? t.faint : t.fg }); y += hl; }
+    });
+  }
+  y += phone ? 2 : 4;
+  const is = phone ? 14.5 : 15.5;
+  for (const l of wrap(INTRO, maxW, is, 'i4')) { body += text(x, y, l, { f: 'i4', s: is, c: t.muted }); y += is * 1.5; }
 
-  y += phone ? 8 : 10;
-  const rowW = phone ? W - 2 * PAD : 620, colW = rowW / FACTS.length;
-  body += hline(x, x + rowW, y, t.border);
+  y += phone ? 4 : 6;
+  const colW = maxW / FACTS.length;
+  body += hline(x, x + maxW, y, t.border);
   let bottom = y;
+  // Each fact is centred in its third of the row.
   FACTS.forEach(([k, v], i) => {
-    const fx = x + i * colW;
-    body += text(fx, y + 26, k, { f: 'i4', s: 12.5, c: t.muted });
-    wrap(v, colW - 16, 14, 'i5').forEach((l, j) => {
-      body += text(fx, y + 47 + j * 19, l, { f: 'i5', s: 14, c: t.fg });
-      bottom = Math.max(bottom, y + 47 + j * 19);
+    const fx = x + i * colW + colW / 2;
+    body += text(fx, y + 22, k, { f: 'i4', s: 12, a: 'middle', c: t.muted });
+    wrap(v, colW - 14, 13.5, 'i5').forEach((l, j) => {
+      body += text(fx, y + 41 + j * 18, l, { f: 'i5', s: 13.5, a: 'middle', c: t.fg });
+      bottom = Math.max(bottom, y + 41 + j * 18);
     });
   });
-  return svg(W, Math.ceil(bottom + 22), t, label, body);
+  return svg(W, Math.ceil(bottom + 16), t, label, body);
 }
 
-// Pill buttons: the first filled (primary), the rest outlined, as on the site.
-function badge(t, link) {
-  const size = 14, h = 38, w = Math.ceil(tw(link.label, size, 'i5') + 18 + 16 + 8 + 18);
+// Pill buttons: the first filled (primary), the rest outlined, as on the site. Drawn in the same units as the
+// panels (880 wide on desktop, 440 on phone) so the README can size them in % and they scale with the hero.
+function badge(t, link, phone) {
+  const size = phone ? 13 : 14, h = phone ? 34 : 38, is = phone ? 15 : 16, ip = phone ? 15 : 18;
+  const w = Math.ceil(tw(link.label, size, 'i5') + ip + is + 8 + ip);
   const x = 2, y = 2, fill = link.primary ? t.fg : t.card, ink = link.primary ? t.onFg : t.fg;
   const body = rect(x + 0.5, y + 0.5, w - 1, h - 1, (h - 1) / 2, `fill="${fill}" stroke="${link.primary ? t.fg : t.border}"${t.shadow && !link.primary ? ' filter="url(#sh)"' : ''}`)
-    + icon(link.icon, x + 18, y + (h - 16) / 2, 16, ink)
-    + text(x + 18 + 16 + 8, y + h / 2 + size * 0.35, link.label, { f: 'i5', s: size, c: ink });
+    + icon(link.icon, x + ip, y + (h - is) / 2, is, ink)
+    + text(x + ip + is + 8, y + h / 2 + size * 0.35, link.label, { f: 'i5', s: size, c: ink });
   return svg(w + 4, h + 8, t, link.label, body);
 }
 
@@ -388,7 +399,8 @@ function about(t, phone) {
   const W = phone ? 440 : 880, cw = W - 2 * PAD, cols = phone ? 1 : 2, colW = cw / cols;
   const size = phone ? 14 : 14.5, lh = phone ? 21 : 22, pad = phone ? 16 : 20, box = phone ? 30 : 32, gut = box + 14;
   const cells = ABOUT.map(([, src]) => richLines(src, colW - 2 * pad - gut, size));
-  const top = phone ? 38 : 40;
+  const lift = phone ? 0 : 14; // desktop: the hidden phone-button line above already gives this space
+  const top = (phone ? 38 : 40) - lift;
   let body = '', y = top;
   for (let r = 0; r < cells.length; r += cols) {
     const row = cells.slice(r, r + cols);
@@ -405,7 +417,7 @@ function about(t, phone) {
     y += h;
   }
   const label = `About me: ${ABOUT.map(([, s]) => s.replace(/\*\*/g, '')).join('. ')}.`;
-  return svg(W, y + PAD, t, label, sectionTitle(t, W, 'About Me', null, phone) + card(PAD, top, cw, y - top, t) + body);
+  return svg(W, y + PAD, t, label, sectionTitle(t, W, 'About Me', null, phone, 25 - lift) + card(PAD, top, cw, y - top, t) + body);
 }
 
 // ─── Tech stack: the Skills section of nazmulnahid.bd ───────────────────────
@@ -723,6 +735,7 @@ async function main() {
   for (const f of readdirSync(ASSETS)) if (f.endsWith('.svg')) rmSync(join(ASSETS, f));
 
   const alts = {};
+  const widths = {}; // intrinsic SVG widths, for sizing the buttons in %
   const emit = (name, fn, { phone = true, widen = true } = {}) => {
     for (const [mode, t] of Object.entries(THEMES)) {
       for (const ph of phone ? [false, true] : [false]) {
@@ -731,6 +744,7 @@ async function main() {
         WIDEN = !ph && widen;
         const out = fn(t, ph);
         writeFileSync(join(ASSETS, `${name}${ph ? '-phone' : ''}-${mode}.svg`), out);
+        widths[`${name}${ph ? '-phone' : ''}`] = Number(out.match(/width="([\d.]+)"/)[1]);
         if (mode === 'light' && !ph) alts[name] = altOf(out);
       }
     }
@@ -742,7 +756,9 @@ async function main() {
 
   emit('brand', (t) => brand(t), { phone: false, widen: false });
   emit('hero', (t, p) => hero(t, p));
-  for (const l of LINKS) emit(`badge-${l.key}`, (t) => badge(t, l), { phone: false, widen: false });
+  for (const l of LINKS) emit(`badge-${l.key}`, (t, p) => badge(t, l, p), { widen: false });
+  // Stand-in for the button set that does not belong on this screen size: wide and ~0 tall, so it shows nothing.
+  writeFileSync(join(ASSETS, 'none.svg'), '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1" viewBox="0 0 1000 1"/>\n');
   emit('about', (t, p) => about(t, p));
   emit('stack', (t, p) => stack(t, p));
   emit('github', (t, p) => stats(t, p, d));
@@ -756,15 +772,25 @@ async function main() {
     ...d.years.map((y) => [`${y}: ${pl(d.yearTotals[y], 'contribution')}`, `graph-${y}`]),
   ].map(([summary, name]) => `<details><summary>${esc(summary)}</summary>${pic(name, alts[name])}</details>`).join('\n');
 
+  // Buttons: one set sized for desktop, one for phone, each a % of the column so they scale with the hero.
+  // Each set swaps to assets/none.svg on the other screen size, so only one shows; every button keeps its own link.
+  const button = (l, phone) => {
+    const name = `badge-${l.key}`, v = phone ? '-phone' : '';
+    const pct = ((widths[`${name}${v}`] / (phone ? 440 : 880)) * 100).toFixed(1);
+    const hide = phone ? '(min-width: 601px)' : '(max-width: 600px)';
+    return `<a href="${l.href}"><picture><source media="${hide}" srcset="assets/none.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/${name}${v}-dark.svg"><img src="assets/${name}${v}-light.svg" width="${pct}%" alt="${esc(l.label)}"></picture></a>`;
+  };
+  const buttons = [false, true].map((ph) => LINKS.map((l) => button(l, ph)).join('\n')).join('\n<br>\n');
+
   const readme = `<!-- Generated by scripts/build.mjs. Edit the script, not this file: it is rebuilt every night. -->
 
 <div>
 <a href="${SITE}">${pic('brand', alts.brand, 'height="30"', { phone: false })}</a>
 <br>
 ${pic('hero', alts.hero)}
-<br>
-${LINKS.map((l) => `<a href="${l.href}">${pic(`badge-${l.key}`, alts[`badge-${l.key}`], 'height="38"', { phone: false })}</a>`).join('\n')}
-<br><br>
+<div align="center">
+${buttons}
+</div>
 ${['about', 'stack', 'github', 'graph-6m'].map((n) => pic(n, alts[n])).join('\n<br>\n')}
 ${details}
 ${pic('line-30d', alts['line-30d'])}
