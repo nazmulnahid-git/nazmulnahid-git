@@ -65,25 +65,25 @@ const STACK = [
 ];
 
 // ─── Design tokens ──────────────────────────────────────────────────────────
-// Surfaces and text use the colours of nazmulnahid.bd (src/index.css): zinc greys, near-black and white.
-// Emerald is the one accent: contribution data, charts and the About Me icons.
+// GitHub's own Primer tokens (light and dark, as on github.com), so every panel looks native on the
+// profile page: card = page canvas, GitHub borders, text, button greys and contribution greens,
+// 6px corners and no shadows. The type, layout and logo chips follow nazmulnahid.bd.
 
 const THEMES = {
   light: {
-    card: '#ffffff', chip: '#f4f4f5', fg: '#111113', onFg: '#ffffff', body: '#62626a', muted: '#62626a', faint: '#a1a1aa',
-    border: '#e4e4e7', track: '#f0f0f1', shadow: true, data: '#059669', ok: '#16a34a',
-    heat: ['#f4f4f5', '#d1fae5', '#6ee7b7', '#10b981', '#047857'], heatText: ['#a1a1aa', '#065f46', '#064e3b', '#022c22', '#ffffff'],
+    card: '#ffffff', chip: '#f6f8fa', fg: '#1f2328', onFg: '#ffffff', body: '#59636e', muted: '#59636e', faint: '#818b98',
+    border: '#d1d9e0', track: '#eff2f5', shadow: false, dark: false, data: '#1a7f37', ok: '#1a7f37', lift: '#ffffff',
+    heat: ['#eff2f5', '#aceebb', '#4ac26b', '#2da44e', '#116329'], heatText: ['#818b98', '#116329', '#04260f', '#04260f', '#ffffff'],
     logo: 'logo-black.png',
   },
-  // GitHub's own dark theme (Primer tokens as used on github.com), so the panels sit on the page natively:
-  // canvas #0d1117, panel #151b23, button #212830, border #3d444d, text #f0f6fc / #9198a1, contribution greens.
   dark: {
-    card: '#151b23', chip: '#212830', fg: '#f0f6fc', onFg: '#0d1117', body: '#9198a1', muted: '#9198a1', faint: '#656c76',
-    border: '#3d444d', track: '#212830', shadow: false, data: '#3fb950', ok: '#3fb950', lift: '#2a313c',
-    heat: ['#212830', '#033a16', '#196c2e', '#2ea043', '#56d364'], heatText: ['#656c76', '#7ee787', '#aff5b4', '#04260f', '#04260f'],
+    card: '#0d1117', chip: '#212830', fg: '#f0f6fc', onFg: '#0d1117', body: '#9198a1', muted: '#9198a1', faint: '#656c76',
+    border: '#3d444d', track: '#212830', shadow: false, dark: true, data: '#3fb950', ok: '#3fb950', lift: '#2a313c',
+    heat: ['#151b23', '#033a16', '#196c2e', '#2ea043', '#56d364'], heatText: ['#656c76', '#7ee787', '#aff5b4', '#04260f', '#04260f'],
     logo: 'logo-white.png',
   },
 };
+const R = 6; // GitHub's corner radius (--borderRadius-medium)
 
 const FONTS = {
   i4: { family: 'IN', weight: 400, file: 'i4.woff2' },
@@ -165,7 +165,7 @@ const hline = (x1, x2, y, c) => `<line x1="${r1(x1)}" y1="${r1(y) + 0.5}" x2="${
 const vline = (x, y1, y2, c) => `<line x1="${r1(x) + 0.5}" y1="${r1(y1)}" x2="${r1(x) + 0.5}" y2="${r1(y2)}" stroke="${c}"/>`;
 
 // Outer card: hairline border, soft shadow in light mode.
-const card = (x, y, w, h, t, r = 16) => rect(x + 0.5, y + 0.5, w - 1, h - 1, r, `fill="${t.card}" stroke="${t.border}"${t.shadow ? ' filter="url(#sh)"' : ''}`);
+const card = (x, y, w, h, t, r = R) => rect(x + 0.5, y + 0.5, w - 1, h - 1, r, `fill="${t.card}" stroke="${t.border}"${t.shadow ? ' filter="url(#sh)"' : ''}`);
 
 const ICONS = {
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
@@ -348,7 +348,7 @@ function badge(t, link, phone) {
   const size = phone ? 13 : 14, h = phone ? 34 : 38, is = phone ? 15 : 16, ip = phone ? 15 : 18;
   const w = Math.ceil(tw(link.label, size, 'i5') + ip + is + 8 + ip);
   const x = 2, y = 2, fill = link.primary ? t.fg : t.card, ink = link.primary ? t.onFg : t.fg;
-  const body = rect(x + 0.5, y + 0.5, w - 1, h - 1, (h - 1) / 2, `fill="${fill}" stroke="${link.primary ? t.fg : t.border}"${t.shadow && !link.primary ? ' filter="url(#sh)"' : ''}`)
+  const body = rect(x + 0.5, y + 0.5, w - 1, h - 1, R, `fill="${fill}" stroke="${link.primary ? t.fg : t.border}"${t.shadow && !link.primary ? ' filter="url(#sh)"' : ''}`)
     + icon(link.icon, x + ip, y + (h - is) / 2, is, ink)
     + text(x + ip + is + 8, y + h / 2 + size * 0.35, link.label, { f: 'i5', s: size, c: ink });
   return svg(w + 4, h + 8, t, link.label, body);
@@ -412,7 +412,7 @@ function about(t, phone) {
       const x = PAD + j * colW;
       if (j) body += vline(x, y + 1, y + h - 1, t.border);
       const is = Math.round(box * 0.5);
-      body += rect(x + pad + 0.5, y + pad - 3.5, box - 1, box - 1, 10, `fill="${t.chip}" stroke="${t.border}"`);
+      body += rect(x + pad + 0.5, y + pad - 3.5, box - 1, box - 1, R, `fill="${t.chip}" stroke="${t.border}"`);
       body += icon(ABOUT[r + j][0], x + pad + (box - is) / 2, y + pad - 4 + (box - is) / 2, is, t.data);
       body += drawRich(t, lines, x + pad + gut, y + pad + 12, size, lh);
     });
@@ -432,11 +432,11 @@ const nearBlack = (hex) => [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16
 // The brand tile: brand colour with a soft top highlight and a faint inner ring, logo centred.
 function logoTile(t, item, x, y, size) {
   const [, color, logo, ink = 'ffffff'] = item;
-  const fill = !t.shadow && nearBlack(color) ? t.lift : `#${color}`; // lift black tiles on the dark theme
+  const fill = t.dark && nearBlack(color) ? t.lift : `#${color}`; // lift black tiles on the dark theme
   const ls = Math.round(size * 0.56), lx = x + (size - ls) / 2, ly = y + (size - ls) / 2;
-  let out = rect(x, y, size, size, size * 0.3, `fill="${fill}"`);
-  out += rect(x, y, size, size, size * 0.3, `fill="url(#tileg)"`);
-  out += rect(x + 0.5, y + 0.5, size - 1, size - 1, size * 0.3 - 0.5, `fill="none" stroke="#ffffff" stroke-opacity="0.1"`);
+  let out = rect(x, y, size, size, 4, `fill="${fill}"`);
+  out += rect(x, y, size, size, 4, `fill="url(#tileg)"`);
+  out += rect(x + 0.5, y + 0.5, size - 1, size - 1, 3.5, `fill="none" stroke="#ffffff" stroke-opacity="0.1"`);
   out += logo.startsWith('lucide:')
     ? icon(logo.slice(7), lx, ly, ls, `#${ink}`)
     : `<svg x="${r1(lx)}" y="${r1(ly)}" width="${ls}" height="${ls}" viewBox="0 0 24 24"><path fill="#${ink}" d="${BRAND_ICONS[logo]}"/></svg>`;
@@ -449,7 +449,7 @@ function techChips(items, t, x0, y0, maxX, { h = 30, size = 13, gap = 7 } = {}) 
   for (const item of items) {
     const w = Math.ceil(4 + ts + 9 + tw(item[0], size, 'i5') + 12);
     if (x + w > maxX && x > x0) { x = x0; y += h + gap; }
-    body += rect(x + 0.5, y + 0.5, w - 1, h - 1, 10, `fill="${t.chip}" stroke="${t.border}"`);
+    body += rect(x + 0.5, y + 0.5, w - 1, h - 1, R, `fill="${t.chip}" stroke="${t.border}"`);
     body += logoTile(t, item, x + 4, y + 4, ts);
     body += text(x + 4 + ts + 9, y + h / 2 + size * 0.36, item[0], { f: 'i5', s: size, c: t.fg });
     x += w + gap;
