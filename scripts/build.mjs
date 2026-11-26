@@ -75,10 +75,12 @@ const THEMES = {
     heat: ['#f4f4f5', '#d1fae5', '#6ee7b7', '#10b981', '#047857'], heatText: ['#a1a1aa', '#065f46', '#064e3b', '#022c22', '#ffffff'],
     logo: 'logo-black.png',
   },
+  // GitHub's own dark theme (Primer tokens as used on github.com), so the panels sit on the page natively:
+  // canvas #0d1117, panel #151b23, button #212830, border #3d444d, text #f0f6fc / #9198a1, contribution greens.
   dark: {
-    card: '#19191a', chip: '#222224', fg: '#f2f2f2', onFg: '#0f0f10', body: '#9a9a9e', muted: '#9a9a9e', faint: '#6b6b70',
-    border: '#282829', track: '#262628', shadow: false, data: '#34d399', ok: '#4ade80',
-    heat: ['#232325', '#064e3b', '#047857', '#10b981', '#6ee7b7'], heatText: ['#5a5a5e', '#a7f3d0', '#d1fae5', '#022c22', '#022c22'],
+    card: '#151b23', chip: '#212830', fg: '#f0f6fc', onFg: '#0d1117', body: '#9198a1', muted: '#9198a1', faint: '#656c76',
+    border: '#3d444d', track: '#212830', shadow: false, data: '#3fb950', ok: '#3fb950', lift: '#2a313c',
+    heat: ['#212830', '#033a16', '#196c2e', '#2ea043', '#56d364'], heatText: ['#656c76', '#7ee787', '#aff5b4', '#04260f', '#04260f'],
     logo: 'logo-white.png',
   },
 };
@@ -430,7 +432,7 @@ const nearBlack = (hex) => [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16
 // The brand tile: brand colour with a soft top highlight and a faint inner ring, logo centred.
 function logoTile(t, item, x, y, size) {
   const [, color, logo, ink = 'ffffff'] = item;
-  const fill = !t.shadow && nearBlack(color) ? '#2a2a2c' : `#${color}`; // lift black tiles on the dark theme
+  const fill = !t.shadow && nearBlack(color) ? t.lift : `#${color}`; // lift black tiles on the dark theme
   const ls = Math.round(size * 0.56), lx = x + (size - ls) / 2, ly = y + (size - ls) / 2;
   let out = rect(x, y, size, size, size * 0.3, `fill="${fill}"`);
   out += rect(x, y, size, size, size * 0.3, `fill="url(#tileg)"`);
