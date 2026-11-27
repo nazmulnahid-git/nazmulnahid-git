@@ -22,7 +22,7 @@ const NAME = 'Nazmul Nahid';
 const ROLE = 'Software Engineer';
 const HEADLINE = ['Building multi-tenant SaaS', 'platforms at scale.']; // second line muted, like the site
 const INTRO = 'Software Engineer (2.5+ yrs) building platforms used by creators and agencies worldwide.';
-const FACTS = [['Currently', 'Software Engineer at AppifyLab'], ['Working on', 'EzyCourse, EzyStudio, EzyCommunity'], ['Based in', 'Sylhet, Bangladesh']];
+const FACTS = [['briefcase', 'Currently', 'Software Engineer at AppifyLab'], ['rocket', 'Working on', 'EzyCourse · EzyStudio · EzyCommunity'], ['pin', 'Based in', 'Sylhet, Bangladesh']];
 // The first link is the filled button, like "View work" on the site.
 const LINKS = [
   { key: 'site', label: 'nazmulnahid.bd', href: SITE, icon: 'globe', primary: true },
@@ -182,6 +182,9 @@ const ICONS = {
   databaseZap: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 15 21.84M21 5V8M21 12L18 17H22L19 22M3 12A9 3 0 0 0 14.59 14.87"/>',
   fileJson: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1"/>',
   database: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>',
+  briefcase: '<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>',
+  rocket: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
   blocks: '<rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/>',
 };
 function icon(name, x, y, size, color, sw = 2) {
@@ -289,69 +292,117 @@ function logo(x, y, h, t) {
   return `<image x="${r1(x)}" y="${r1(y)}" width="${r1(h * LOGO_RATIO)}" height="${h}" href="data:image/png;base64,${LOGO_DATA[t.logo]}"/>`;
 }
 
-// Like the site's hero: small intro line, big two-tone headline, intro, then a row of facts.
-// The logo line is its own small image, sized to its content, so only it links to the site.
-function brand(t) {
-  const lh = 30, x = 2, top = 2, hi = `Hi, I'm ${NAME}`;
-  let body = logo(x, top, lh, t);
-  let cx = x + lh * LOGO_RATIO + 12;
-  body += text(cx, top + lh / 2 + 5, hi, { f: 'i5', s: 14, c: t.fg });
-  cx += tw(hi, 14, 'i5') + 12;
-  body += vline(cx, top + lh / 2 - 8, top + lh / 2 + 8, t.border);
-  cx += 12;
-  body += text(cx, top + lh / 2 + 5, ROLE, { f: 'i5', s: 14, c: t.muted });
-  return svg(Math.ceil(cx + tw(ROLE, 14, 'i5') + 4), lh + 2 * top, t, `Hi, I'm ${NAME}, ${ROLE}`, body);
+// ─── Header bar: brand on the left, buttons on the right, on one line ───────
+// Each piece is its own image so each keeps its own link. They share one height and are sized in % of the
+// column (desktop units: 880 = 100%), so they sit on one line at any width. Phone variants are drawn at half
+// the width in 440-units (same %), as a short name and icon-only buttons, so no hidden rows are needed.
+
+const HEAD_H = 46, BTN_H = 38, BTN_GAP = 8; // canvas height, pill height, space between pills (all in each scale's units)
+const hi = `Hi, I'm ${NAME}`;
+const brandDesk = () => PAD + 30 * LOGO_RATIO + 12 + tw(hi, 14, 'i5') + 12 + 1 + 12 + tw(ROLE, 14, 'i5') + 4;
+const brandPhone = () => PAD + 30 * LOGO_RATIO + 10 + tw(NAME, 15, 'i6') + 4;
+const btnContent = (l) => 18 + 16 + 8 + tw(l.label, 14, 'i5') + 18;
+const HEADER = (() => {
+  const others = LINKS.filter((l) => !l.primary);
+  const sameW = Math.max(...others.map(btnContent)); // the outlined buttons share one width
+  // Phone pills must stay finger-sized: at least 52 phone units each (twice that on desktop).
+  const btn = Object.fromEntries(LINKS.map((l) => [l.key, Math.ceil(Math.max(l.primary ? btnContent(l) : sameW, 104) + BTN_GAP)]));
+  const brand = Math.ceil(Math.max(brandDesk(), 2 * brandPhone()));
+  const spacer = 880 - brand - Object.values(btn).reduce((a, b) => a + b, 0) - 2; // 2 units of slack so rounding never wraps; the last pill then ends where the cards do
+  if (spacer < 0) throw new Error('Header does not fit on one line: shorten the role or the button labels.');
+  return { btn, brand, spacer };
+})();
+const pct = (w) => `${Math.floor((w / 880) * 10000) / 100}%`;
+
+// The mark, name and role. Phone: the mark and name only.
+function brand(t, phone) {
+  const W = phone ? HEADER.brand / 2 : HEADER.brand, lh = 30, top = (HEAD_H - lh) / 2, mid = HEAD_H / 2;
+  let body = logo(PAD, top, lh, t), cx = PAD + lh * LOGO_RATIO + (phone ? 10 : 12);
+  if (phone) {
+    body += text(cx, mid + 5.5, NAME, { f: 'i6', s: 15, c: t.fg });
+  } else {
+    body += text(cx, mid + 5, hi, { f: 'i5', s: 14, c: t.fg });
+    cx += tw(hi, 14, 'i5') + 12;
+    body += vline(cx, mid - 8, mid + 8, t.border);
+    body += text(cx + 13, mid + 5, ROLE, { f: 'i5', s: 14, c: t.muted });
+  }
+  return svg(Math.round(W * 10) / 10, HEAD_H, t, `${hi}, ${ROLE}`, body);
 }
 
-// Headline, intro and facts; not a link. Uses the full width so it stays short.
+// Pill buttons: the first filled (primary), the rest outlined, as on the site. Desktop: icon and label,
+// centred in the pill. Phone: the icon alone, in a pill as wide as its slot.
+function badge(t, link, phone) {
+  const W = phone ? HEADER.btn[link.key] / 2 : HEADER.btn[link.key], w = W - BTN_GAP, x = BTN_GAP / 2, y = (HEAD_H - BTN_H) / 2;
+  const fill = link.primary ? t.fg : t.card, ink = link.primary ? t.onFg : t.fg, is = phone ? 17 : 16;
+  let body = rect(x + 0.5, y + 0.5, w - 1, BTN_H - 1, R, `fill="${fill}" stroke="${link.primary ? t.fg : t.border}"`);
+  if (phone) {
+    body += icon(link.icon, x + (w - is) / 2, y + (BTN_H - is) / 2, is, ink);
+  } else {
+    const cw = is + 8 + tw(link.label, 14, 'i5'), cx = x + (w - cw) / 2;
+    body += icon(link.icon, cx, y + (BTN_H - is) / 2, is, ink) + text(cx + is + 8, y + BTN_H / 2 + 4.9, link.label, { f: 'i5', s: 14, c: ink });
+  }
+  return svg(Math.round(W * 10) / 10, HEAD_H, t, link.label, body);
+}
+
+// ─── Hero: two-tone headline, intro, and the facts in a strip ───────────────
+
+// A fact: an icon tile like the About Me ones, a small label and the value.
+function factTile(t, x, y, box, ic) {
+  const is = Math.round(box * 0.5);
+  return rect(x + 0.5, y + 0.5, box - 1, box - 1, R, `fill="${t.chip}" stroke="${t.border}"`) + icon(ic, x + (box - is) / 2, y + (box - is) / 2, is, t.data);
+}
+
 function hero(t, phone) {
-  const label = `${HEADLINE.join(' ')} ${INTRO} ${FACTS.map(([k, v]) => `${k}: ${v}.`).join(' ')}`;
+  const label = `${HEADLINE.join(' ')} ${INTRO} ${FACTS.map(([, k, v]) => `${k}: ${v.replace(/ · /g, ', ')}.`).join(' ')}`;
   const W = phone ? 440 : 880, x = PAD, maxW = W - 2 * PAD;
   let body = '';
 
   // Headline: on one line, two-tone, when it fits; otherwise one part per line.
-  const hs = phone ? 27 : 38, hl = hs * 1.1;
-  let y = (phone ? 8 : 10) + hs * 0.8;
+  const hs = phone ? 26 : 34, hl = hs * 1.12;
+  let y = 4 + hs * 0.82;
   const [first, second] = HEADLINE;
   if (tw(`${first} ${second}`, hs, 'i7') <= maxW) {
     body += text(x - 1, y, first, { f: 'i7', s: hs, c: t.fg });
     body += text(x - 1 + tw(`${first} `, hs, 'i7'), y, second, { f: 'i7', s: hs, c: t.faint });
-    y += hl;
   } else {
     HEADLINE.forEach((part, i) => {
-      for (const l of wrap(part, maxW, hs, 'i7')) { body += text(x - 1, y, l, { f: 'i7', s: hs, c: i ? t.faint : t.fg }); y += hl; }
+      wrap(part, maxW, hs, 'i7').forEach((l, j) => { if (i || j) y += hl; body += text(x - 1, y, l, { f: 'i7', s: hs, c: i ? t.faint : t.fg }); });
     });
   }
-  y += phone ? 2 : 4;
-  const is = phone ? 14.5 : 15.5;
-  for (const l of wrap(INTRO, maxW, is, 'i4')) { body += text(x, y, l, { f: 'i4', s: is, c: t.muted }); y += is * 1.5; }
+  const is = phone ? 14 : 15, il = is * 1.5;
+  y += phone ? 26 : 30;
+  wrap(INTRO, maxW, is, 'i4').forEach((l, i) => { body += text(x, y + i * il, l, { f: 'i4', s: is, c: t.muted }); if (i) y += il; });
+  const top = y + (phone ? 16 : 18);
 
-  y += phone ? 4 : 6;
-  const colW = maxW / FACTS.length;
-  body += hline(x, x + maxW, y, t.border);
-  let bottom = y;
-  // Each fact is centred in its third of the row.
-  FACTS.forEach(([k, v], i) => {
-    const fx = x + i * colW + colW / 2;
-    body += text(fx, y + 22, k, { f: 'i4', s: 12, a: 'middle', c: t.muted });
-    wrap(v, colW - 14, 13.5, 'i5').forEach((l, j) => {
-      body += text(fx, y + 41 + j * 18, l, { f: 'i5', s: 13.5, a: 'middle', c: t.fg });
-      bottom = Math.max(bottom, y + 41 + j * 18);
+  if (!phone) {
+    // One strip, a cell per fact, each sized to its text with the spare room shared out evenly.
+    const box = 32, gut = box + 12, h = 62;
+    const inner = FACTS.map(([, k, v]) => gut + Math.max(tw(k, 12, 'i4'), tw(v, 13.5, 'i5')));
+    const pad = (maxW - inner.reduce((a, b) => a + b, 0)) / (2 * FACTS.length);
+    body += card(x, top, maxW, h, t);
+    let cx = x;
+    FACTS.forEach(([ic, k, v], i) => {
+      if (i) body += vline(cx, top + 1, top + h - 1, t.border);
+      const ix = cx + pad;
+      body += factTile(t, ix, top + (h - box) / 2, box, ic);
+      body += text(ix + gut, top + 26, k, { f: 'i4', s: 12, c: t.muted });
+      body += text(ix + gut, top + 45, v, { f: 'i5', s: 13.5, c: t.fg });
+      cx += inner[i] + 2 * pad;
     });
-  });
-  return svg(W, Math.ceil(bottom + 16), t, label, body);
-}
+    return svg(W, Math.ceil(top + h + PAD), t, label, body);
+  }
 
-// Pill buttons: the first filled (primary), the rest outlined, as on the site. Drawn in the same units as the
-// panels (880 wide on desktop, 440 on phone) so the README can size them in % and they scale with the hero.
-function badge(t, link, phone) {
-  const size = phone ? 13 : 14, h = phone ? 34 : 38, is = phone ? 15 : 16, ip = phone ? 15 : 18;
-  const w = Math.ceil(tw(link.label, size, 'i5') + ip + is + 8 + ip);
-  const x = 2, y = 2, fill = link.primary ? t.fg : t.card, ink = link.primary ? t.onFg : t.fg;
-  const body = rect(x + 0.5, y + 0.5, w - 1, h - 1, R, `fill="${fill}" stroke="${link.primary ? t.fg : t.border}"${t.shadow && !link.primary ? ' filter="url(#sh)"' : ''}`)
-    + icon(link.icon, x + ip, y + (h - is) / 2, is, ink)
-    + text(x + ip + is + 8, y + h / 2 + size * 0.35, link.label, { f: 'i5', s: size, c: ink });
-  return svg(w + 4, h + 8, t, link.label, body);
+  // Phone: a row per fact, label and value on one line.
+  const box = 28, rh = 44, h = rh * FACTS.length;
+  body += card(x, top, maxW, h, t);
+  FACTS.forEach(([ic, k, v], i) => {
+    const ry = top + i * rh;
+    if (i) body += hline(x + 1, x + maxW - 1, ry, t.border);
+    body += factTile(t, x + 12, ry + (rh - box) / 2, box, ic);
+    body += text(x + 12 + box + 11, ry + rh / 2 + 4.6, k, { f: 'i4', s: 13, c: t.muted });
+    body += text(x + 12 + box + 11 + tw(`${k} `, 13, 'i4'), ry + rh / 2 + 4.6, v, { f: 'i5', s: 13, c: t.fg });
+  });
+  return svg(W, Math.ceil(top + h + PAD), t, label, body);
 }
 
 // ─── About Me: the original points, two per row in one card ─────────────────
@@ -401,8 +452,7 @@ function about(t, phone) {
   const W = phone ? 440 : 880, cw = W - 2 * PAD, cols = phone ? 1 : 2, colW = cw / cols;
   const size = phone ? 14 : 14.5, lh = phone ? 21 : 22, pad = phone ? 16 : 20, box = phone ? 30 : 32, gut = box + 14;
   const cells = ABOUT.map(([, src]) => richLines(src, colW - 2 * pad - gut, size));
-  const lift = phone ? 0 : 14; // desktop: the hidden phone-button line above already gives this space
-  const top = (phone ? 38 : 40) - lift;
+  const top = phone ? 38 : 40;
   let body = '', y = top;
   for (let r = 0; r < cells.length; r += cols) {
     const row = cells.slice(r, r + cols);
@@ -419,7 +469,7 @@ function about(t, phone) {
     y += h;
   }
   const label = `About me: ${ABOUT.map(([, s]) => s.replace(/\*\*/g, '')).join('. ')}.`;
-  return svg(W, y + PAD, t, label, sectionTitle(t, W, 'About Me', null, phone, 25 - lift) + card(PAD, top, cw, y - top, t) + body);
+  return svg(W, y + PAD, t, label, sectionTitle(t, W, 'About Me', null, phone) + card(PAD, top, cw, y - top, t) + body);
 }
 
 // ─── Tech stack: the Skills section of nazmulnahid.bd ───────────────────────
@@ -737,7 +787,6 @@ async function main() {
   for (const f of readdirSync(ASSETS)) if (f.endsWith('.svg')) rmSync(join(ASSETS, f));
 
   const alts = {};
-  const widths = {}; // intrinsic SVG widths, for sizing the buttons in %
   const emit = (name, fn, { phone = true, widen = true } = {}) => {
     for (const [mode, t] of Object.entries(THEMES)) {
       for (const ph of phone ? [false, true] : [false]) {
@@ -746,7 +795,6 @@ async function main() {
         WIDEN = !ph && widen;
         const out = fn(t, ph);
         writeFileSync(join(ASSETS, `${name}${ph ? '-phone' : ''}-${mode}.svg`), out);
-        widths[`${name}${ph ? '-phone' : ''}`] = Number(out.match(/width="([\d.]+)"/)[1]);
         if (mode === 'light' && !ph) alts[name] = altOf(out);
       }
     }
@@ -756,10 +804,10 @@ async function main() {
   const cut = iso(sixMonthsAgo);
   const weeks6 = d.lastYear.map((w) => w.filter((x) => x.date >= cut)).filter((w) => w.length);
 
-  emit('brand', (t) => brand(t), { phone: false, widen: false });
+  emit('brand', (t, p) => brand(t, p), { widen: false });
   emit('hero', (t, p) => hero(t, p));
   for (const l of LINKS) emit(`badge-${l.key}`, (t, p) => badge(t, l, p), { widen: false });
-  // Stand-in for the button set that does not belong on this screen size: wide and ~0 tall, so it shows nothing.
+  // The gap between the brand and the buttons: wide and ~0 tall, so it shows nothing.
   writeFileSync(join(ASSETS, 'none.svg'), '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1" viewBox="0 0 1000 1"/>\n');
   emit('about', (t, p) => about(t, p));
   emit('stack', (t, p) => stack(t, p));
@@ -774,25 +822,17 @@ async function main() {
     ...d.years.map((y) => [`${y}: ${pl(d.yearTotals[y], 'contribution')}`, `graph-${y}`]),
   ].map(([summary, name]) => `<details><summary>${esc(summary)}</summary>${pic(name, alts[name])}</details>`).join('\n');
 
-  // Buttons: one set sized for desktop, one for phone, each a % of the column so they scale with the hero.
-  // Each set swaps to assets/none.svg on the other screen size, so only one shows; every button keeps its own link.
-  const button = (l, phone) => {
-    const name = `badge-${l.key}`, v = phone ? '-phone' : '';
-    const pct = ((widths[`${name}${v}`] / (phone ? 440 : 880)) * 100).toFixed(1);
-    const hide = phone ? '(min-width: 601px)' : '(max-width: 600px)';
-    return `<a href="${l.href}"><picture><source media="${hide}" srcset="assets/none.svg"><source media="(prefers-color-scheme: dark)" srcset="assets/${name}${v}-dark.svg"><img src="assets/${name}${v}-light.svg" width="${pct}%" alt="${esc(l.label)}"></picture></a>`;
-  };
-  const buttons = [false, true].map((ph) => LINKS.map((l) => button(l, ph)).join('\n')).join('\n<br>\n');
+  // Header bar: brand, an invisible gap, then the buttons, written with no whitespace between them so the
+  // widths (in %) add up to just under 100% and everything stays on one line at any screen size.
+  const header = `<a href="${SITE}">${pic('brand', alts.brand, `width="${pct(HEADER.brand)}"`)}</a>`
+    + `<img src="assets/none.svg" width="${pct(HEADER.spacer)}" alt="">`
+    + LINKS.map((l) => `<a href="${l.href}">${pic(`badge-${l.key}`, l.label, `width="${pct(HEADER.btn[l.key])}"`)}</a>`).join('');
 
   const readme = `<!-- Generated by scripts/build.mjs. Edit the script, not this file: it is rebuilt every night. -->
 
 <div>
-<a href="${SITE}">${pic('brand', alts.brand, 'height="30"', { phone: false })}</a>
-<br>
+${header}
 ${pic('hero', alts.hero)}
-<div align="center">
-${buttons}
-</div>
 ${['about', 'stack', 'github', 'graph-6m'].map((n) => pic(n, alts[n])).join('\n<br>\n')}
 ${details}
 ${pic('line-30d', alts['line-30d'])}
