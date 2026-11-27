@@ -474,56 +474,44 @@ function about(t, phone) {
 }
 
 // ─── Tech stack: the Skills section of nazmulnahid.bd ───────────────────────
-// A row per group: number, title and blurb on the left, logo chips on the right.
+// Minimal and GitHub-native: a row per group, the name on the left, then outlined pills with a
+// monochrome logo, like GitHub's labels. Brand colours in STACK are kept as data but not drawn.
 
 // Simple Icons (CC0) paths, the same logos the site loads from cdn.simpleicons.org.
 const BRAND_ICONS = JSON.parse(readFileSync(join(HERE, 'brand', 'simple-icons.json'), 'utf8'));
-const nearBlack = (hex) => [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16)).reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0) < 40;
 
-// The brand tile: brand colour with a soft top highlight and a faint inner ring, logo centred.
-function logoTile(t, item, x, y, size) {
-  const [, color, logo, ink = 'ffffff'] = item;
-  const fill = t.dark && nearBlack(color) ? t.lift : `#${color}`; // lift black tiles on the dark theme
-  const ls = Math.round(size * 0.56), lx = x + (size - ls) / 2, ly = y + (size - ls) / 2;
-  let out = rect(x, y, size, size, 4, `fill="${fill}"`);
-  out += rect(x, y, size, size, 4, `fill="url(#tileg)"`);
-  out += rect(x + 0.5, y + 0.5, size - 1, size - 1, 3.5, `fill="none" stroke="#ffffff" stroke-opacity="0.1"`);
-  out += logo.startsWith('lucide:')
-    ? icon(logo.slice(7), lx, ly, ls, `#${ink}`)
-    : `<svg x="${r1(lx)}" y="${r1(ly)}" width="${ls}" height="${ls}" viewBox="0 0 24 24"><path fill="#${ink}" d="${BRAND_ICONS[logo]}"/></svg>`;
-  return out;
+function stackLogo(item, x, y, size, color) {
+  const logo = item[2];
+  return logo.startsWith('lucide:')
+    ? icon(logo.slice(7), x, y, size, color)
+    : `<svg x="${r1(x)}" y="${r1(y)}" width="${size}" height="${size}" viewBox="0 0 24 24"><path fill="${color}" d="${BRAND_ICONS[logo]}"/></svg>`;
 }
 
-function techChips(items, t, x0, y0, maxX, { h = 30, size = 13, gap = 7 } = {}) {
+function techChips(items, t, x0, y0, maxX, { h = 28, size = 13, gap = 8, ls = 14 } = {}) {
   let body = '', x = x0, y = y0;
-  const ts = h - 8;
   for (const item of items) {
-    const w = Math.ceil(4 + ts + 9 + tw(item[0], size, 'i5') + 12);
+    const w = Math.ceil(10 + ls + 7 + tw(item[0], size, 'i5') + 12);
     if (x + w > maxX && x > x0) { x = x0; y += h + gap; }
-    body += rect(x + 0.5, y + 0.5, w - 1, h - 1, R, `fill="${t.chip}" stroke="${t.border}"`);
-    body += logoTile(t, item, x + 4, y + 4, ts);
-    body += text(x + 4 + ts + 9, y + h / 2 + size * 0.36, item[0], { f: 'i5', s: size, c: t.fg });
+    body += rect(x + 0.5, y + 0.5, w - 1, h - 1, h / 2, `fill="none" stroke="${t.border}"`);
+    body += stackLogo(item, x + 10, y + (h - ls) / 2, ls, t.muted);
+    body += text(x + 10 + ls + 7, y + h / 2 + size * 0.36, item[0], { f: 'i5', s: size, c: t.fg });
     x += w + gap;
   }
   return { body, bottom: y + h };
 }
 
-// Compact: one row per group, number and name on the left, logo chips on the right.
+// One row per group, name on the left (above the pills on phone).
 // The blurbs from the site go into the alt text only, to keep the section short.
 function stack(t, phone) {
-  const W = phone ? 440 : 880, cw = W - 2 * PAD, ip = phone ? 16 : 22, pad = phone ? 14 : 15;
-  const ch = 30, labelW = 150, chipsX = phone ? PAD + ip : PAD + ip + labelW, maxX = PAD + cw - ip;
+  const W = phone ? 440 : 880, cw = W - 2 * PAD, ip = phone ? 16 : 20, pad = phone ? 14 : 14;
+  const ch = 28, labelW = 140, chipsX = phone ? PAD + ip : PAD + ip + labelW, maxX = PAD + cw - ip;
   const total = STACK.reduce((s, g) => s + g.items.length, 0);
   const top = 38;
-  let body = `<defs><linearGradient id="tileg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient></defs>`;
-  let y = top;
+  let body = '', y = top;
   STACK.forEach((g, i) => {
     if (i) body += hline(PAD + 1, PAD + cw - 1, y, t.border);
-    const lx = PAD + ip, ly = y + pad + ch / 2 + 5;
-    const num = String(i + 1).padStart(2, '0');
-    body += text(lx, ly, num, { f: 'i5', s: 12, c: t.faint });
-    body += text(lx + 24, ly, g.title, { f: 'i6', s: 14.5, c: t.fg });
-    const c = techChips(g.items, t, chipsX, phone ? y + pad + ch + 8 : y + pad, maxX, { h: ch, size: 13, gap: 7 });
+    body += text(PAD + ip, y + pad + ch / 2 + 4.8, g.title, { f: 'i5', s: 13.5, c: t.muted });
+    const c = techChips(g.items, t, chipsX, phone ? y + pad + ch + 2 : y + pad, maxX, { h: ch });
     body += c.body;
     y = c.bottom + pad;
   });
