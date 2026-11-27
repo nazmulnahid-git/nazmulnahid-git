@@ -632,7 +632,13 @@ function headline(t, x, y, value, what) {
   return text(x, y, value, { f: 'i7', s: 22, c: t.fg }) + text(x + tw(value, 22, 'i7') + 8, y, what, { f: 'i4', s: 14, c: t.muted });
 }
 
-function graph(t, phone, weeks, what) {
+// A panel with an optional section title above it, like the other sections.
+function withTitle(W, h, t, label, body, title, phone) {
+  if (!title) return svg(W, h, t, label, body);
+  return svg(W, h + 32, t, label, sectionTitle(t, W, title, null, phone) + `<g transform="translate(0 32)">${body}</g>`);
+}
+
+function graph(t, phone, weeks, what, title = null) {
   const all = weeks.flat();
   const total = all.reduce((s, x) => s + x.count, 0);
   const label = `${fmt(total)} contributions ${what}`;
@@ -665,7 +671,7 @@ function graph(t, phone, weeks, what) {
     body += hline(PAD + 1, W - PAD - 1, fy - 22, t.border);
     body += text(x0, fy + 6, 'Contributions per day', { f: 'i4', s: 13, c: t.muted }) + legend(t, W - PAD - 24, fy + 6);
     const ch = fy + 24 - PAD;
-    return svg(W, ch + 2 * PAD, t, label, card(PAD, PAD, cw, ch, t) + body);
+    return withTitle(W, ch + 2 * PAD, t, label, card(PAD, PAD, cw, ch, t) + body, title, phone);
   }
 
   // Phone: a calendar, one week per row.
@@ -687,7 +693,7 @@ function graph(t, phone, weeks, what) {
   body += hline(PAD + 1, W - PAD - 1, fy - 21, t.border);
   body += text(PAD + 22, fy + 6, 'Per day', { f: 'i4', s: 13, c: t.muted }) + legend(t, W - PAD - 22, fy + 6);
   const ch = fy + 24 - PAD;
-  return svg(W, ch + 2 * PAD, t, label, card(PAD, PAD, cw, ch, t) + body);
+  return withTitle(W, ch + 2 * PAD, t, label, card(PAD, PAD, cw, ch, t) + body, title, phone);
 }
 
 // Smooth curve that never overshoots below zero (monotone cubic).
@@ -806,7 +812,7 @@ async function main() {
   emit('about', (t, p) => about(t, p));
   emit('stack', (t, p) => stack(t, p));
   emit('github', (t, p) => stats(t, p, d));
-  emit('graph-6m', (t, p) => graph(t, p, weeks6, 'in the last 6 months'));
+  emit('graph-6m', (t, p) => graph(t, p, weeks6, 'in the last 6 months', 'Contributions'));
   emit('graph-12m', (t, p) => graph(t, p, d.lastYear, 'in the last 12 months'));
   for (const y of d.years) emit(`graph-${y}`, (t, p) => graph(t, p, d.byYear[y], `in ${y}`));
   emit('line-30d', (t, p) => line30(t, p, d));
@@ -827,9 +833,8 @@ async function main() {
 <div>
 ${header}
 ${pic('hero', alts.hero)}
-${['about', 'stack', 'github', 'graph-6m'].map((n) => pic(n, alts[n])).join('\n<br>\n')}
+${['github', 'about', 'stack', 'line-30d', 'graph-6m'].map((n) => pic(n, alts[n])).join('\n<br>\n')}
 ${details}
-${pic('line-30d', alts['line-30d'])}
 <br>
 <sub>Numbers redrawn every night by a GitHub Action.</sub>
 </div>
