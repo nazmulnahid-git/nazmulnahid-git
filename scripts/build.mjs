@@ -7,6 +7,7 @@
 
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -772,8 +773,11 @@ function line30(t, phone, d) {
 
 // ─── README ─────────────────────────────────────────────────────────────────
 
+// Each SVG's file name carries a hash of its content (hero-dark.1a2b3c4d.svg), so a changed image gets a new URL.
+// GitHub's image CDN can keep serving an old copy of a file for hours after it changes; a new URL can't be stale.
+const FILES = {};
 const pic = (name, alt, size = 'width="100%"', { phone = true } = {}) => {
-  const src = (v) => `assets/${name}${v}.svg`;
+  const src = (v) => `assets/${FILES[`${name}${v}`]}`;
   const sources = phone
     ? `<source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="${src('-phone-dark')}"><source media="(max-width: 600px)" srcset="${src('-phone-light')}"><source media="(prefers-color-scheme: dark)" srcset="${src('-dark')}">`
     : `<source media="(prefers-color-scheme: dark)" srcset="${src('-dark')}">`;
@@ -794,7 +798,9 @@ async function main() {
         UID = 0;
         WIDEN = !ph && widen;
         const out = fn(t, ph);
-        writeFileSync(join(ASSETS, `${name}${ph ? '-phone' : ''}-${mode}.svg`), out);
+        const key = `${name}${ph ? '-phone' : ''}-${mode}`, file = `${key}.${createHash('sha1').update(out).digest('hex').slice(0, 8)}.svg`;
+        writeFileSync(join(ASSETS, file), out);
+        FILES[key] = file;
         if (mode === 'light' && !ph) alts[name] = altOf(out);
       }
     }
